@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    readonly float G = 1.0f;
+    readonly float G = 0.1f;
     GameObject[] celestials;
 
     // Start is called before the first frame update
     void Start()
     {
         celestials = GameObject.FindGameObjectsWithTag("Celestial");
-        InitialVelocity();
-        
+        InitialVelocity(); 
     }
 
-    // Update is called once per frame
+    // FixedUpdate is called once per frame
     void FixedUpdate()
     {
         Gravity();
@@ -30,7 +29,6 @@ public class Manager : MonoBehaviour
                     float distance = Vector3.Distance(a.transform.position, b.transform.position);
 
                     a.GetComponent<Rigidbody>().AddForce((b.transform.position - a.transform.position).normalized * (G * (m1 * m2) / (distance * distance)));
-
                 }
             }
         }
@@ -45,7 +43,6 @@ public class Manager : MonoBehaviour
                     a.transform.LookAt(b.transform);
 
                     a.GetComponent<Rigidbody>().velocity += a.transform.right * Mathf.Sqrt((G * m2) / distance);
-
                 }
             }
         }
