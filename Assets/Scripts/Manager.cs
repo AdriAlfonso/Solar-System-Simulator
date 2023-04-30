@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    readonly float G = 100f;
+    readonly float G = 1.0f;
     GameObject[] celestials;
 
     // Start is called before the first frame update
